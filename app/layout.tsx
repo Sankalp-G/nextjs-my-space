@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import NavMenu from './NavMenu'
+import { theme } from '@/data/theme'
 
 const inter = Poppins({ subsets: ['latin'], weight: ['400', '700'] })
 
@@ -16,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" data-theme="night">
+    <html lang="en" data-theme={theme.light}>
       <body className={inter.className}>
         <NavMenu />
         <div className='m-8 p-8 rounded-3xl h-full bg-base-200 shadow-md'>
