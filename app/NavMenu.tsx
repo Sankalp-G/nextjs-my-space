@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ThemeToggle from "./ThemeToggle";
 
 export default function NavMenu() {
   return (
@@ -7,12 +8,13 @@ export default function NavMenu() {
         <Link href={'/'} className="btn btn-ghost normal-case text-xl">MySpace</Link>
       </div>
       <div className="flex-none">
-        <ul className="menu menu-horizontal gap-1 px-1 text-md tracking-wide">
-          <li><Link href={'/about'}>About</Link></li>
-          <li><Link href={'/blog'}>Blog</Link></li>
-          <li><Link href={'/users'}>Users</Link></li>
+        <ul className="menu menu-horizontal sm:gap-1 sm:px-1 text-md sm:tracking-wide">
+          <li><Link className="px-2 sm:px-3" href={'/about'}>About</Link></li>
+          <li><Link className="px-2 sm:px-3" href={'/blog'}>Blog</Link></li>
+          <li><Link className="px-2 sm:px-3" href={'/users'}>Users</Link></li>
         </ul>
       </div>
+      <ThemeToggle />
     </div>
   )
 }
