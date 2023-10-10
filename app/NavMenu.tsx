@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function NavMenu() {
   return (
-    <div className="navbar bg-base-300 shadow-lg">
+    <div className="navbar bg-base-200 shadow-md">
       <div className="flex-1">
         <Link href={'/'} className="btn btn-ghost normal-case text-xl">MySpace</Link>
       </div>
