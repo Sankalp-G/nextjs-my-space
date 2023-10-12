@@ -11,7 +11,7 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  const posts: Post[] = await fetch("https://nextjs-my-space-frer5xrmn-sankalp-g.vercel.app/api/content").then(
+  const posts: Post[] = await fetch("https://nextjs-my-space.vercel.app/api/content").then(
     res => res.json()
   )
 
@@ -21,7 +21,7 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogPostPage({ params }: Props) {
-  const posts: Post[] = await fetch("https://nextjs-my-space-frer5xrmn-sankalp-g.vercel.app/api/content").then(
+  const posts: Post[] = await fetch("https://nextjs-my-space.vercel.app/api/content").then(
     res => res.json()
   )
   const post = posts.find(post => post.slug == params.slug)!;
