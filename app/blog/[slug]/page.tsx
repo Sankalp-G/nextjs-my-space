@@ -10,15 +10,15 @@ interface Props {
   params: { slug: String }
 }
 
-export async function generateStaticParams() {
-  const posts: Post[] = await fetch("https://nextjs-my-space.vercel.app/api/content").then(
-    res => res.json()
-  )
+// export async function generateStaticParams() {
+//   const posts: Post[] = await fetch("https://nextjs-my-space.vercel.app/api/content").then(
+//     res => res.json()
+//   )
 
-  return posts.map(
-    post => { slug: post.slug }
-  )
-}
+//   return posts.map(
+//     post => { slug: post.slug }
+//   )
+// }
 
 export default async function BlogPostPage({ params }: Props) {
   const posts: Post[] = await fetch("https://nextjs-my-space.vercel.app/api/content").then(
