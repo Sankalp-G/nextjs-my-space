@@ -10,15 +10,8 @@ interface Props {
   params: { slug: String }
 }
 
-function hosted_api_url() {
-  if (typeof process.env.VERCEL_URL !== "undefined") {
-    return `https://${process.env.VERCEL_URL}/api/content`
-  }
-  return undefined
-}
-
 export async function generateStaticParams() {
-  const posts: Post[] = await fetch(hosted_api_url() ?? "http://localhost:3000/api/content").then(
+  const posts: Post[] = await fetch("https://nextjs-my-space-frer5xrmn-sankalp-g.vercel.app/api/content").then(
     res => res.json()
   )
 
@@ -28,7 +21,7 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogPostPage({ params }: Props) {
-  const posts: Post[] = await fetch(hosted_api_url() ?? "http://localhost:3000/api/content").then(
+  const posts: Post[] = await fetch("https://nextjs-my-space-frer5xrmn-sankalp-g.vercel.app/api/content").then(
     res => res.json()
   )
   const post = posts.find(post => post.slug == params.slug)!;
