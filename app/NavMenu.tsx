@@ -22,7 +22,7 @@ export default function NavMenu() {
             <Link className="px-2 sm:px-3" href={"/users"}>Users</Link>
           </li>
           <div className="divider divider-horizontal w-1 mx-0"></div>
-          <li className="justify-center flex-row">
+          <li className="items-center flex-row">
             <SignOutButton />
             <SignInButton />
           </li>
