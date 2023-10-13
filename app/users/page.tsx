@@ -1,3 +1,5 @@
+export const revalidate = 420;
+
 import { prisma } from "@/lib/prisma";
 import UserCard from "./UserCard";
 import PageHeading from "@/components/PageHeading";
