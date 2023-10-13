@@ -5,7 +5,7 @@ import type { NextAuthOptions } from "next-auth"
 import GithubProvider from "next-auth/providers/github"
 import GoogleProvider from "next-auth/providers/google"
 
-const authOptions: NextAuthOptions = {
+export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     GithubProvider({
@@ -17,6 +17,18 @@ const authOptions: NextAuthOptions = {
       clientSecret: process.env.GOOGLE_SECRET!,
     }),
   ],
+  callbacks: {
+    jwt: async ({token, user, account, profile}) => {
+      if (user) {
+        token.id = user.id;
+      }
+      return Promise.resolve(token);
+    },
+    session: async ({session, user}) => {
+      session.user.id = user.id;
+      return Promise.resolve(session);
+    }
+  },
 }
 
 const handler = NextAuth(authOptions);
