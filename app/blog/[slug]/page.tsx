@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import PageHeading from "@/components/PageHeading";
 
 interface Post {
