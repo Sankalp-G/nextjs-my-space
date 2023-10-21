@@ -31,8 +31,12 @@ export default async function UserProfile({ params }: Props) {
           className="rounded-xl"
         />
 
-        {/* <h3>Bio</h3>
-        <p>{bio}</p> */}
+        {!bio ? <></> :
+          <div>
+            <span className="text-lg text-secondary font-bold">BIO: </span>
+            <span className="opacity-80">{bio}</span>
+          </div>
+        }
 
         <div className="flex gap-4">
           <FollowButton targetUserId={params.id} />
