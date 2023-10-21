@@ -9,7 +9,7 @@ interface Posts {
 
 export default async function BlogPage() {
   const posts: Posts[] = await (
-    await fetch("http://localhost:3000/api/content")
+    await fetch("https://nextjs-my-space.vercel.app/api/content")
   ).json();
 
   return (
