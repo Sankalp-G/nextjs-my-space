@@ -52,7 +52,7 @@ export function SignInButton() {
 
   return (
     <button
-      className="btn btn-sm btn-primary ml-3"
+      className="btn btn-sm btn-primary"
       onClick={() => signIn()}
     >Sign In</button>
   )
@@ -63,7 +63,7 @@ export function SignOutButton() {
 
   if (status == "authenticated") {
     return (
-      <button onClick={() => signOut()}>Sign Out</button>
+      <button className="btn btn-md btn-warning px-8 mb-4" onClick={() => signOut()}>Sign Out</button>
     )
   }
 

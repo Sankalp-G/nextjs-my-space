@@ -5,7 +5,7 @@ import NavMenu from './NavMenu'
 import { theme } from '@/data/theme'
 import AuthProvider from './AuthProvider'
 
-const inter = Poppins({ subsets: ['latin'], weight: ['400', '700'] })
+const poppins = Poppins({ subsets: ['latin'], weight: ['400', '700'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -19,8 +19,8 @@ export default function RootLayout({
 }) {
   return (
     <AuthProvider>
-      <html lang="en" data-theme={theme.light}>
-        <body className={inter.className}>
+      <html lang="en" data-theme={theme.light} className={poppins.className}>
+        <body className='flex flex-col items-center'>
           <NavMenu />
           <div className='m-8 p-8 rounded-3xl h-full bg-base-200 shadow-md'>
             {children}
