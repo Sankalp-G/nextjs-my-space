@@ -9,8 +9,12 @@ interface Props {
 
 export default async function FollowButton({ targetUserId }: Props) {
   const session = await getServerSession(authOptions)
-  const currentUserId = session?.user.id!
 
+  if (!session) {
+    return <FollowClient targetUserId={ targetUserId } isFollowing={ false } />
+  }
+
+  const currentUserId = session?.user.id!
   const isFollowing = await prisma.follows.findFirst({
     where: {
       followerId: currentUserId,
@@ -21,5 +25,4 @@ export default async function FollowButton({ targetUserId }: Props) {
   return (
     <FollowClient targetUserId={ targetUserId } isFollowing={!!isFollowing} />
   )
-
 }
