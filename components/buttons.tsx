@@ -1,6 +1,5 @@
 "use client"
 
-import { Session } from "next-auth";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,7 +8,7 @@ import Link from "next/link";
 function Avatar() {
   const { data: session, status } = useSession();
 
-  if (typeof session?.user?.image == undefined) {
+  if (!session?.user?.image) {
     return (
       <Link href={"/dashboard"} className="p-0">
         <div className="avatar placeholder w-[32px] h-[32px]">
@@ -26,7 +25,7 @@ function Avatar() {
         <div className="avatar w-[32px] h-[32px]">
           <Image
             className="w-[32px] h-[32px] p-0 m-0 object-contain rounded-full text-center flex items-center bg-base-300"
-            src={session?.user?.image!}
+            src={session?.user?.image}
             width={32}
             height={32}
             alt="User"

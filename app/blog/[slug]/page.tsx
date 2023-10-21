@@ -26,7 +26,13 @@ export default async function BlogPostPage({ params }: Props) {
   const posts: Post[] = await fetch("http://localhost:3000/api/content").then(
     res => res.json()
   )
-  const post = posts.find(post => post.slug == params.slug)!;
+  const post = posts.find(post => post.slug == params.slug);
+
+  if (!post) {
+    return (
+      <h1 className="text-4xl font-bold">Post Not Found</h1>
+    )
+  }
 
   return (
     <>
