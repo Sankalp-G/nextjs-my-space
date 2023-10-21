@@ -13,7 +13,7 @@ export default function Error({ error, reset }: Props) {
   }, [error])
 
   return (
-    <div className="h-96 w-full flex flex-col gap-2 items-center justify-center">
+    <div className="h-96 sm:w-96 flex flex-col gap-2 items-center justify-center">
       <span className="text-lg">Something went wrong :(</span>
 
       <button onClick={() => reset()} className="btn btn-primary btn-sm">

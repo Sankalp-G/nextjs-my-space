@@ -14,12 +14,12 @@ export default async function Dashboard() {
   const user = await prisma.user.findUnique({ where: { id: session?.user.id } })
 
   return (
-    <>
+    <div className="sm:w-96">
       <PageHeading title={"Sign Out"} />
       <SignOutButton />
 
       <PageHeading title={"Update Profile"} />
       <ProfileForm user={user} />
-    </>
+    </div>
   )
 }
